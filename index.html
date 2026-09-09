@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Inya Apps - Something Great is Coming</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+    html,
+    body {
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Moving Tech Grid Background */
+    .bg-tech-grid {
+      background-size: 50px 50px;
+      background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 50px 50px;
+      }
+    }
+
+    /* Animated Grid Beam Light Pulse */
+    .grid-beam {
+      position: absolute;
+      background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.7), transparent);
+      height: 2px;
+      width: 250px;
+      animation: beamSweep 5s ease-in-out infinite;
+    }
+
+    @keyframes beamSweep {
+      0% {
+        transform: translateX(-100%) translateY(0);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(100vw) translateY(40vh);
+        opacity: 0;
+      }
+    }
+
+    /* Animated Construction Hazard Stripes */
+    .hazard-stripe-top {
+      background: repeating-linear-gradient(-45deg,
+          #f59e0b,
+          #f59e0b 12px,
+          #1e293b 12px,
+          #1e293b 24px);
+      background-size: 200% 200%;
+      animation: stripeMove 8s linear infinite;
+    }
+
+    .hazard-stripe-bottom {
+      background: repeating-linear-gradient(45deg,
+          #f59e0b,
+          #f59e0b 12px,
+          #1e293b 12px,
+          #1e293b 24px);
+      background-size: 200% 200%;
+      animation: stripeMove 8s linear infinite reverse;
+    }
+
+    @keyframes stripeMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 100px 0;
+      }
+    }
+
+    /* Floating & Pulsing Particles */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.8) 0%, rgba(245, 158, 11, 0) 70%);
+      animation: floatAndPulse linear infinite;
+    }
+
+    @keyframes floatAndPulse {
+      0% {
+        transform: translateY(105vh) scale(0.3);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: translateY(50vh) scale(1.2);
+      }
+
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Floating Geometric Tech Shapes */
+    .tech-shape {
+      position: absolute;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      animation: floatShape 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatShape {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(-30px) rotate(180deg);
+      }
+    }
+
+    /* Gradient Wave Animation for Text */
+    .animated-gradient-text {
+      background: linear-gradient(90deg, #f59e0b, #ea580c, #6366f1, #f59e0b);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* 3D Float for Hero Badge Icon */
+    .float-3d {
+      animation: float3d 4s ease-in-out infinite;
+    }
+
+    @keyframes float3d {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-8px) rotate(3deg);
+      }
+    }
+
+    /* Glowing Focus Outline for Input */
+    .glow-input:focus-within {
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+    }
+
+    /* Button Shimmer Effect */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(30deg);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%) rotate(30deg);
+      }
+
+      100% {
+        transform: translateX(100%) rotate(30deg);
+      }
+    }
+
+    /* Staggered Load Animations */
+    .hero-fade-in {
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 flex flex-col justify-between relative h-screen overflow-hidden select-none">
+
+  <!-- Animated Interactive Cursor Spotlight Glow -->
+  <div id="spotlight"
+    class="fixed w-96 h-96 bg-amber-400/20 rounded-full blur-3xl pointer-events-none transition-transform duration-100 ease-out z-0 -translate-x-1/2 -translate-y-1/2">
+  </div>
+
+  <!-- Animated Background Layer -->
+  <div class="fixed inset-0 bg-tech-grid pointer-events-none z-0"></div>
+
+  <!-- Animated Light Beams -->
+  <div class="grid-beam top-1/4 left-0 pointer-events-none z-0"></div>
+  <div class="grid-beam top-2/3 left-1/3 pointer-events-none z-0" style="animation-delay: 2.5s;"></div>
+
+  <!-- Floating Geometric Tech Accents -->
+  <div class="tech-shape w-12 h-12 rounded-lg top-1/3 left-10 pointer-events-none z-0"></div>
+  <div class="tech-shape w-8 h-8 rounded-full bottom-1/4 right-12 pointer-events-none z-0" style="animation-delay: 3s;">
+  </div>
+
+  <!-- Animated Hazard Top Border -->
+  <div class="h-1.5 w-full hazard-stripe-top fixed top-0 left-0 z-30 shadow-md"></div>
+
+  <!-- Ambient Light Glow Orbs -->
+  <div
+    class="absolute -top-32 -left-32 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl pointer-events-none animate-pulse">
+  </div>
+  <div
+    class="absolute -bottom-32 -right-32 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none animate-pulse"
+    style="animation-duration: 4s;"></div>
+
+  <!-- Dynamic Particles Container -->
+  <div id="particle-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="w-full max-w-5xl mx-auto px-5 pt-6 pb-2 flex justify-between items-center z-20 shrink-0">
+    <a href="#" class="flex items-center gap-2.5 group">
+      <img src="brand_logo.svg" alt="Inya Apps Logo"
+        class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+        onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';" />
+
+      <div id="logo-fallback"
+        class="hidden w-8 h-8 rounded-lg bg-slate-900 text-amber-400 font-extrabold text-base items-center justify-center shadow-md">
+        I
+      </div>
+
+      <span
+        class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-amber-600 transition duration-300">
+      </span>
+    </a>
+
+    <div>
+      <span
+        class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-800 border border-amber-500/30 shadow-sm backdrop-blur-sm transition hover:border-amber-500/60">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+        </span>
+        Under Construction
+      </span>
+    </div>
+  </header>
+
+  <!-- Main Hero Section with Interactive 3D Parallax Perspective -->
+  <main id="tilt-card"
+    class="w-full max-w-2xl mx-auto px-5 z-10 flex flex-col items-center justify-center text-center my-auto transition-transform duration-200 ease-out">
+
+    <!-- Floating Blueprint Badge -->
+    <div
+      class="float-3d hero-fade-in inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/90 border border-amber-500/30 text-slate-700 text-xs font-semibold mb-4 sm:mb-6 shadow-lg shadow-amber-500/5 backdrop-blur-md">
+      <svg class="w-4 h-4 text-amber-500 animate-spin" style="animation-duration: 10s;" fill="none"
+        stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M11 4a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2V4zM4 20h16a1 1 0 001-1v-1a2 2 0 00-2-2H5a2 2 0 00-2 2v1a1 1 0 001 1zM4 14h16a1 1 0 001-1v-1a2 2 0 00-2-2H5a2 2 0 00-2 2v1a1 1 0 001 1z">
+        </path>
+      </svg>
+      Building Digital Products
+    </div>
+
+    <!-- Main Headline with Color Wave Animation -->
+    <h1 class="hero-fade-in text-3xl sm:text-5xl font-black tracking-tight text-slate-900 mb-3 sm:mb-4 leading-tight"
+      style="animation-delay: 0.1s;">
+      We are crafting something <br class="hidden sm:block" />
+      <span class="animated-gradient-text">
+        extraordinary.
+      </span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-fade-in text-slate-600 text-sm sm:text-base mb-6 sm:mb-8 max-w-lg leading-relaxed"
+      style="animation-delay: 0.2s;">
+      Inya Apps is currently building innovative mobile and web experiences. Our digital workspace is under
+      construction, but we will launch soon!
+    </p>
+
+    <!-- Subscription Form with Glow Border and Shimmer Button -->
+    <form
+      class="hero-fade-in glow-input w-full max-w-md flex flex-col sm:flex-row gap-2 relative z-10 p-1 rounded-2xl transition-all duration-300"
+      style="animation-delay: 0.3s;"
+      onsubmit="event.preventDefault(); alert('Thank you! We will notify you when we launch.');">
+      <input type="email" required placeholder="Enter your email for updates"
+        class="flex-1 px-4 py-3 rounded-xl bg-white/90 border border-slate-300 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:border-amber-500 transition shadow-sm backdrop-blur-sm" />
+      <button type="submit"
+        class="btn-shimmer px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 text-sm font-bold transition duration-300 shadow-lg shadow-slate-900/20 active:scale-95 shrink-0 hover:shadow-amber-500/20">
+        Get Notified
+      </button>
+    </form>
+
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="w-full max-w-5xl mx-auto px-5 py-4 text-center sm:flex sm:justify-between sm:items-center text-slate-500 text-xs z-10 border-t border-slate-200/80 shrink-0">
+    <p>&copy; <span id="year"></span> inya Apps. All rights reserved.</p>
+    <div class="mt-2 sm:mt-0">
+      <a href="privacy.html"
+        class="text-slate-600 hover:text-amber-600 transition underline font-medium hover:scale-105 inline-block">
+        Privacy Policy
+      </a>
+    </div>
+  </footer>
+
+  <!-- Animated Hazard Bottom Border -->
+  <div class="h-1.5 w-full hazard-stripe-bottom fixed bottom-0 left-0 z-30"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Set Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mouse Cursor Glow Tracking & 3D Tilt Effect
+    const spotlight = document.getElementById('spotlight');
+    const tiltCard = document.getElementById('tilt-card');
+
+    window.addEventListener('mousemove', (e) => {
+      // Spotlight position
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY}px`;
+
+      // Slight 3D card tilt based on cursor
+      const x = (window.innerWidth / 2 - e.clientX) / 45;
+      const y = (window.innerHeight / 2 - e.clientY) / 45;
+      tiltCard.style.transform = `rotateY(${-x}deg) rotateX(${y}deg)`;
+    });
+
+    // Particle Generator
+    const particleContainer = document.getElementById('particle-container');
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+
+      const size = Math.random() * 8 + 3;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${Math.random() * 10 + 6}s`;
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+
+      particleContainer.appendChild(particle);
+    }
+  </script>
+</body>
+
+</html>

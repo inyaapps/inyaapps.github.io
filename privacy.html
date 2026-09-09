@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Inya Apps</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Moving Tech Grid Background */
+    .bg-tech-grid {
+      background-size: 50px 50px;
+      background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 50px 50px;
+      }
+    }
+
+    /* Animated Grid Beam Light Pulse */
+    .grid-beam {
+      position: absolute;
+      background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.7), transparent);
+      height: 2px;
+      width: 250px;
+      animation: beamSweep 5s ease-in-out infinite;
+    }
+
+    @keyframes beamSweep {
+      0% {
+        transform: translateX(-100%) translateY(0);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(100vw) translateY(40vh);
+        opacity: 0;
+      }
+    }
+
+    /* Animated Construction Hazard Stripes */
+    .hazard-stripe-top {
+      background: repeating-linear-gradient(-45deg,
+          #f59e0b,
+          #f59e0b 12px,
+          #1e293b 12px,
+          #1e293b 24px);
+      background-size: 200% 200%;
+      animation: stripeMove 8s linear infinite;
+    }
+
+    .hazard-stripe-bottom {
+      background: repeating-linear-gradient(45deg,
+          #f59e0b,
+          #f59e0b 12px,
+          #1e293b 12px,
+          #1e293b 24px);
+      background-size: 200% 200%;
+      animation: stripeMove 8s linear infinite reverse;
+    }
+
+    @keyframes stripeMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 100px 0;
+      }
+    }
+
+    /* Floating & Pulsing Particles */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.8) 0%, rgba(245, 158, 11, 0) 70%);
+      animation: floatAndPulse linear infinite;
+    }
+
+    @keyframes floatAndPulse {
+      0% {
+        transform: translateY(105vh) scale(0.3);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: translateY(50vh) scale(1.2);
+      }
+
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Floating Geometric Tech Shapes */
+    .tech-shape {
+      position: absolute;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      animation: floatShape 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatShape {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      100% {
+        transform: translateY(-30px) rotate(180deg);
+      }
+    }
+
+    /* Entry Animation */
+    .card-fade-in {
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen justify-between relative">
+
+  <!-- Animated Interactive Cursor Spotlight Glow -->
+  <div id="spotlight"
+    class="fixed w-96 h-96 bg-amber-400/20 rounded-full blur-3xl pointer-events-none transition-transform duration-100 ease-out z-0 -translate-x-1/2 -translate-y-1/2">
+  </div>
+
+  <!-- Animated Background Layer -->
+  <div class="fixed inset-0 bg-tech-grid pointer-events-none z-0"></div>
+
+  <!-- Animated Light Beams -->
+  <div class="grid-beam top-1/4 left-0 pointer-events-none z-0"></div>
+  <div class="grid-beam top-2/3 left-1/3 pointer-events-none z-0" style="animation-delay: 2.5s;"></div>
+
+  <!-- Floating Geometric Tech Accents -->
+  <div class="tech-shape w-12 h-12 rounded-lg top-1/3 left-10 pointer-events-none z-0"></div>
+  <div class="tech-shape w-8 h-8 rounded-full bottom-1/4 right-12 pointer-events-none z-0" style="animation-delay: 3s;">
+  </div>
+
+  <!-- Animated Hazard Top Border -->
+  <div class="h-1.5 w-full hazard-stripe-top fixed top-0 left-0 z-30 shadow-md"></div>
+
+  <!-- Light Ambient Glow Orbs -->
+  <div class="fixed -top-32 -left-32 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl pointer-events-none animate-pulse">
+  </div>
+  <div
+    class="fixed -bottom-32 -right-32 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none animate-pulse"
+    style="animation-duration: 4s;"></div>
+
+  <!-- Particles Container -->
+  <div id="particle-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="w-full max-w-4xl mx-auto px-5 pt-8 pb-4 flex justify-between items-center z-20">
+    <a href="index.html" class="flex items-center gap-2.5 group">
+      <!-- Logo Image Slot -->
+      <img src="brand_logo.svg" alt="Inya Apps Logo"
+        class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+        onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';" />
+
+      <!-- Fallback Badge Icon -->
+      <div id="logo-fallback"
+        class="hidden w-8 h-8 rounded-lg bg-slate-900 text-amber-400 font-extrabold text-base items-center justify-center shadow-md">
+        I
+      </div>
+
+      <span
+        class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 group-hover:text-amber-600 transition duration-300">
+      </span>
+    </a>
+
+    <a href="index.html"
+      class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-amber-400 hover:bg-slate-800 transition duration-300 shadow-md hover:shadow-amber-500/20 hover:scale-105 active:scale-95">
+      &larr; Back to Home
+    </a>
+  </header>
+
+  <!-- Main Privacy Policy Content -->
+  <main class="w-full max-w-4xl mx-auto px-5 py-8 z-10 my-auto card-fade-in">
+    <div
+      class="bg-white/90 border border-slate-200/90 rounded-2xl p-6 sm:p-10 shadow-xl shadow-amber-500/5 backdrop-blur-md text-slate-700">
+
+      <!-- Page Header -->
+      <div class="border-b border-slate-100 pb-5 mb-6">
+        <h1 class="text-3xl font-black text-slate-900 tracking-tight">Privacy Policy</h1>
+        <p class="text-xs text-slate-500 mt-2 font-medium">Last Updated: September 9, 2026</p>
+      </div>
+
+      <!-- Policy Body -->
+      <div class="text-sm space-y-6 leading-relaxed">
+        <p>
+          <strong>Inya Apps</strong> ("we", "our", or "us") develops and publishes mobile applications and related
+          digital services. This Privacy Policy explains how we collect, use, store, and protect information when you
+          use our applications.
+        </p>
+        <p>
+          This policy applies to applications published by Inya Apps that link to this Privacy Policy.
+        </p>
+
+        <!-- Section 1 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">1. Information We Collect</h2>
+          <p class="mb-2">Depending on the application and features you use, we may collect:</p>
+          <ul class="list-disc list-inside space-y-1 pl-2 text-slate-600">
+            <li>Name</li>
+            <li>Mobile number</li>
+            <li>Email address</li>
+            <li>Account information</li>
+            <li>Information provided by the user</li>
+            <li>Device information</li>
+            <li>Android version</li>
+            <li>App version</li>
+            <li>IP address</li>
+            <li>Advertising identifiers</li>
+            <li>App usage and interaction information</li>
+            <li>Crash and diagnostic information</li>
+          </ul>
+          <p class="mt-2 text-xs text-slate-500 italic">The information collected depends on the specific application's
+            features.</p>
+        </div>
+
+        <!-- Section 2 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">2. How We Use Information</h2>
+          <p class="mb-2">We may use collected information to:</p>
+          <ul class="list-disc list-inside space-y-1 pl-2 text-slate-600">
+            <li>Provide and operate our applications</li>
+            <li>Create and manage accounts</li>
+            <li>Provide requested services and features</li>
+            <li>Improve our applications</li>
+            <li>Analyze application usage and performance</li>
+            <li>Provide customer support</li>
+            <li>Detect fraud, abuse, and security issues</li>
+            <li>Send important notifications</li>
+            <li>Fix technical problems</li>
+            <li>Comply with applicable laws</li>
+          </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">3. Analytics</h2>
+          <p>
+            Our applications may use services such as Google Analytics, Firebase Analytics, or similar analytics
+            services to understand application usage and improve our services.
+          </p>
+          <p class="mt-1">
+            These services may collect information about device type, app version, app interactions, and usage events.
+          </p>
+        </div>
+
+        <!-- Section 4 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">4. Advertising</h2>
+          <p>
+            Some Inya Apps applications may display advertisements.
+          </p>
+          <p class="mt-1">
+            Where advertising services are used, third-party advertising providers may collect certain device and
+            advertising-related information according to their respective privacy policies.
+          </p>
+        </div>
+
+        <!-- Section 5 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">5. Sharing of Information</h2>
+          <p class="mb-2">We may share information when necessary with:</p>
+          <ul class="list-disc list-inside space-y-1 pl-2 text-slate-600">
+            <li>Service providers</li>
+            <li>Analytics providers</li>
+            <li>Advertising providers</li>
+            <li>Cloud and hosting providers</li>
+            <li>Payment providers, where applicable</li>
+            <li>Government or legal authorities when required by law</li>
+          </ul>
+          <p class="mt-2 font-medium text-slate-800">We do not sell users' personal information as a general practice.
+          </p>
+        </div>
+
+        <!-- Section 6 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">6. Data Security</h2>
+          <p>
+            We take reasonable technical and organizational measures to protect user information against unauthorized
+            access, disclosure, alteration, loss, or misuse.
+          </p>
+          <p class="mt-1">
+            However, no electronic storage or transmission method can be guaranteed to be completely secure.
+          </p>
+        </div>
+
+        <!-- Section 7 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">7. Data Retention</h2>
+          <p>
+            We retain information only for as long as necessary to provide our services, fulfill legitimate business
+            purposes, resolve disputes, maintain security, and comply with legal obligations.
+          </p>
+        </div>
+
+        <!-- Section 8 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">8. Account and Data Deletion</h2>
+          <p>
+            Where an application provides account creation, users may request deletion of their account and associated
+            personal information through the deletion options provided in the application or by contacting us.
+          </p>
+          <p class="mt-1">
+            Some information may be retained where required or permitted by law.
+          </p>
+        </div>
+
+        <!-- Section 9 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">9. Children's Privacy</h2>
+          <p>
+            Our applications are not generally intended for children unless specifically stated otherwise.
+          </p>
+          <p class="mt-1">
+            We do not knowingly collect personal information from children in violation of applicable laws.
+          </p>
+        </div>
+
+        <!-- Section 10 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">10. Third-Party Services</h2>
+          <p>
+            Our applications may use third-party services such as Google Play Services, Firebase, Google Analytics,
+            advertising networks, authentication providers, payment providers, and other services required for
+            application functionality.
+          </p>
+          <p class="mt-1">
+            These third-party services may process information according to their own privacy policies.
+          </p>
+        </div>
+
+        <!-- Section 11 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">11. App Permissions</h2>
+          <p class="mb-2">Depending on the application's functionality, we may request permissions such as:</p>
+          <ul class="list-disc list-inside space-y-1 pl-2 text-slate-600">
+            <li>Internet</li>
+            <li>Notifications</li>
+            <li>Camera</li>
+            <li>Photos and files</li>
+            <li>Location</li>
+            <li>Contacts</li>
+            <li>Microphone</li>
+          </ul>
+          <p class="mt-2 text-xs text-slate-500 italic">Permissions are requested only when required for the relevant
+            functionality.</p>
+        </div>
+
+        <!-- Section 12 -->
+        <div>
+          <h2 class="text-base font-bold text-slate-900 mb-2">12. Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. Any changes will be reflected by updating the "Last
+            Updated" date on this page.
+          </p>
+        </div>
+
+        <!-- Section 13 -->
+
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Compact Footer -->
+  <footer
+    class="w-full max-w-4xl mx-auto px-5 py-6 text-center sm:flex sm:justify-between sm:items-center text-slate-500 text-xs z-10 border-t border-slate-200/80">
+    <p>&copy; <span id="year"></span> inya Apps. All rights reserved.</p>
+    <div class="mt-2 sm:mt-0">
+      <a href="index.html"
+        class="text-slate-600 hover:text-amber-600 transition font-medium hover:scale-105 inline-block">Home Page</a>
+    </div>
+  </footer>
+
+  <!-- Animated Hazard Bottom Border -->
+  <div class="h-1.5 w-full hazard-stripe-bottom fixed bottom-0 left-0 z-30"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Set Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mouse Cursor Glow Tracking Effect
+    const spotlight = document.getElementById('spotlight');
+    window.addEventListener('mousemove', (e) => {
+      spotlight.style.left = `${e.clientX}px`;
+      spotlight.style.top = `${e.clientY}px`;
+    });
+
+    // Particle Generator
+    const particleContainer = document.getElementById('particle-container');
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+
+      const size = Math.random() * 8 + 3;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${Math.random() * 10 + 6}s`;
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+
+      particleContainer.appendChild(particle);
+    }
+  </script>
+</body>
+
+</html>
